@@ -7,10 +7,12 @@ table{
 }
 table.list{
     width:100%;
+    border: 1px solid black;
+    
 }
 
 td, th {
-    border: 1px solid #dddddd;
+    border: 1px solid black;
     text-align: left;
     padding: 8px;
 }
@@ -30,7 +32,7 @@ input[type=text], input[type=number] {
 
 input[type=submit]{
     width: 30%;
-    background-color: #ddd;
+    background-color:#dddddd;
     color: #000;
     padding: 14px 20px;
     margin: 8px 0;
