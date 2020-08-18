@@ -1,0 +1,60 @@
+var selectedRow = null;
+
+function onSubmit(){
+    var formData = readFormData ();
+    if (selectedRow == null)
+        insertNewRecord(formData);
+        else
+        updateRecord(formData);
+    resetForm();
+}
+
+function readFormData () {
+    var formData = {};
+    formData["name"] = document.getElementById("name").value;
+    formData["contact"] = document.getElementById("contact").value;
+    formData["address"] = document.getElementById("address").value;
+    return formData;
+}
+
+function insertNewRecord (data) {
+    var table = document.getElementById("nameList").getElementsByTagName('tbody')[0];
+    var newRow = table.insertRow(table.length);
+    cell0 = newRow.insertCell(0);
+    cell0.innerHTML = data.name;
+    cell1 = newRow.insertCell(1);
+    cell1.innerHTML = data.contact;
+    cell2 = newRow.insertCell(2);
+    cell2.innerHTML = data.address;
+    cell3 = newRow.insertCell(3);
+    cell3.innerHTML = ` <a onClick = "onEdit(this)">Edit</a>
+                       <a onClick = "onDelete(this)">Delete</a >`;
+}
+
+function resetForm () {
+    document.getElementById("name").value = "";
+    document.getElementById("contact").value = "";
+    document.getElementById("address").value = "";
+    selectedRow = null;
+}
+
+function onEdit(td) {
+    selectedRow = td.parentElement.parentElement;
+    document.getElementById("name").value = selectedRow.cells[0].innerHTML;
+    document.getElementById("contact").value = selectedRow.cells[1].innerHTML;
+    document.getElementById("address").value = selectedRow.cells[2].innerHTML;
+}
+
+function updateRecord(formData) {
+    selectedRow.cells[0].innerHTML = formData.name;
+    selectedRow.cells[1].innerHTML = formData.contact;
+    selectedRow.cells[2].innerHTML = formData.address;
+}
+
+function onDelete(td) {
+    if (confirm('Are you sure to Delete?')) {
+        row = td.parentElement.parentElement;
+        document.getElementById("nameList").deleteRow(row.rowIndex);
+        resetForm();
+    }
+}
