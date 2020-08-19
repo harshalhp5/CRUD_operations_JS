@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD 2</title>
+</head>
+<body>
+
+    <H3>CRUD 2 Operation</H3>
+
+    <table border="1">
+        <tr>
+            <td>
+
+                <form onsubmit="event.preventDefault(); onSubmit();" autocomplete="off">
+    
+                    <label>State Name</label>
+                    <input type="text" name="stateName" id="stateName">
+
+                    <label>Active Cases</label>
+                    <input type="number" name="activeCases" id="activeCases">
+
+                    <label>Recovered</label>
+                    <input type="number" name="recCases" id="recCases">
+
+                    <label>Total Cases</label>
+                    <input type="number" name="totCases" id="totCases">
+
+                    <input type="submit" value="Add Data">
+
+                </form>
+
+            </td>
+        </tr>
+    </table>
+
+    <br><br>
+
+    <table id="tableData" border="1">
+    <tr>
+        <thead>
+        <th>State Name</th>
+        <th >Active Cases</th>
+        <th>Recovered</th>
+        <th>Total Cases</th>
+        <th></th>
+      
+        </thead>
+        <tbody>
+
+        </tbody>
+    </tr>
+    </table>
+    <script src="crud2.js"></script>
+</body>
+</html>
